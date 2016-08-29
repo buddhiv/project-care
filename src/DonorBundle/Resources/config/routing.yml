@@ -5,3 +5,19 @@ donor_homepage:
 home:
     path:     /donor/home
     defaults: { _controller: DonorBundle:Donor:home }
+
+donate:
+    path:     donor/donate
+    defaults: { _controller: DonorBundle:Ajax:donate }
+
+profile:
+    path:     donor/profile
+    defaults: { _controller: DonorBundle:Ajax:profile }
+
+history:
+    path:     donor/history
+    defaults: { _controller: DonorBundle:Ajax:history }
+
+settings:
+    path:     donor/settings
+    defaults: { _controller: DonorBundle:Ajax:settings }

@@ -31,7 +31,8 @@
                         <div class="card-title">Hello User!</div>
                     </div>
                     <ul class="collection">
-                        <li class="collection-item"><a href="" style="color: teal"><b>Donate!</b></a></li>
+                        <li class="collection-item"><a href="" style="color: teal"
+                                                       onclick="ajaxCall()"><b>Donate!</b></a></li>
                         <li class="collection-item"><a href="" style="color: teal">Profile</a></li>
                         <li class="collection-item"><a href="" style="color: teal">History</a></li>
                         <li class="collection-item"><a href="" style="color: teal">Settings</a></li>
@@ -41,7 +42,7 @@
             {#Left Menu End#}
 
             {#Right Body Start#}
-            <div class="col s12 m10 l9">
+            <div class="col s12 m10 l9" id="right-body">
 
             </div>
             {#Right Body End#}
@@ -51,10 +52,22 @@
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
+    {{ parnt() }}
 
     {#Materialize JS#}
     <script src="{{ asset('/assets/vendor/materialize/js/parallax.js') }}" type="text/javascript"></script>
     <script src="{{ asset('/assets/vendor/materialize/js/waves.js') }}" type="text/javascript"></script>
     <script src="{{ asset('/assets/vendor/materialize/js/forms.js') }}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function ajaxCall() {
+            console.log("sdasd");
+
+            $.post('{{ path('donate') }}', {data1: 'mydata1', data2: 'mydata2'}, function (response) {
+                if (response.code == 100 && response.success) {
+                    console.log(232343);
+                }
+            }, "json");
+        }
+    </script>
 {% endblock %}
