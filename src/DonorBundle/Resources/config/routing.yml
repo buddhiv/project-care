@@ -1,0 +1,7 @@
+donor_homepage:
+    path:     /
+    defaults: { _controller: DonorBundle:Default:index }
+
+home:
+    path:     /donor/home
+    defaults: { _controller: DonorBundle:Donor:home }

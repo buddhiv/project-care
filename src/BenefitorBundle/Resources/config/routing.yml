@@ -1,0 +1,3 @@
+benefitor_homepage:
+    path:     /
+    defaults: { _controller: BenefitorBundle:Default:index }
