@@ -9,26 +9,42 @@ class AjaxController extends Controller
 {
     public function donateAction()
     {
-        $response = array("code" => 100, "success" => true);
-        return new Response(json_encode($response));
+        $template_data = $this->render('DonorBundle:Ajax:donate.html.twig', array())->getContent();
+
+        $data = array("code" => 100, "success" => true, "content" => $template_data);
+        $response = new Response(json_encode($data), 200);
+        $response->headers->set('Çontent-Type', 'application/json');
+        return $response;
     }
 
     public function profileAction()
     {
-        return $this->render('DonorBundle:Ajax:profile.html.twig', array(// ...
-        ));
+        $template_data = $this->render('DonorBundle:Ajax:profile.html.twig', array())->getContent();
+
+        $data = array("code" => 100, "success" => true, "content" => $template_data);
+        $response = new Response(json_encode($data), 200);
+        $response->headers->set('Çontent-Type', 'application/json');
+        return $response;
     }
 
     public function historyAction()
     {
-        return $this->render('DonorBundle:Ajax:history.html.twig', array(// ...
-        ));
+        $template_data = $this->render('DonorBundle:Ajax:history.html.twig', array())->getContent();
+
+        $data = array("code" => 100, "success" => true, "content" => $template_data);
+        $response = new Response(json_encode($data), 200);
+        $response->headers->set('Çontent-Type', 'application/json');
+        return $response;
     }
 
     public function settingsAction()
     {
-        return $this->render('DonorBundle:Ajax:settings.html.twig', array(// ...
-        ));
+        $template_data = $this->render('DonorBundle:Ajax:settings.html.twig', array())->getContent();
+
+        $data = array("code" => 100, "success" => true, "content" => $template_data);
+        $response = new Response(json_encode($data), 200);
+        $response->headers->set('Çontent-Type', 'application/json');
+        return $response;
     }
 
 }
