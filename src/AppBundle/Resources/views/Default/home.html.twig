@@ -1,0 +1,96 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <nav>
+        <div class="navbar-fixed nav-wrapper teal">
+            <div class="container">
+                <a href="{{ path('home') }}" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#" class="">About</a></li>
+                    <li><a href="#" class="">Support</a></li>
+                    <li><a href="#" class="">Contact</a></li>
+                    <li><a href="#" class="">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12" id="right-body">
+                <div class="section">
+                    Home page description goes here! page description goes here!
+                    <a class="btn right" style="margin-top: 0px">Join now!</a>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 100px; margin-bottom: 100px">
+            <div class="col s12 m12 l12">
+                <div class="col m1 l1">
+                </div>
+
+                <div class="col s12 m10 l10">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="input-field" style="margin-top: 30px">
+                                <label>Enter your term</label>
+                                <input value="" type="text" class="validate" id="search-text"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m1 l1">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="center-align">
+                <p>There are thousands of people who like to donate things they have to whom in need.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m7 l8">
+                <div class="card">
+                    <div class="card-content">
+                        asdasasdasdasdm
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s12 m5 l4">
+                <div class="card teal">
+                    <div class="card-content white-text">
+                        <span class="card-title">sad</span>
+                        <p>asdsdasd</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer teal">
+        <div class="footer-copyright">
+            <div class="container">
+                <div id="copyright-text"></div>
+                <script>
+                    document.getElementById('copyright-text').innerHTML = 'Copyright ' + new Date().getFullYear() + ' All Rights Reserved | Project-Care'
+                </script>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+{% endblock %}

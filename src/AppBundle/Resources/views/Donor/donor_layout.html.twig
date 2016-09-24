@@ -1,0 +1,109 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <nav>
+        <div class="navbar-fixed nav-wrapper teal">
+            <div class="container">
+                <a href="{{ path('home') }}" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#" class="">About</a></li>
+                    <li><a href="#" class="">Support</a></li>
+                    <li><a href="#" class="">Contact</a></li>
+                    <li><a href="#" class="">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            {#Left Menu Start#}
+            <div class="col s12 m2 l3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">Hello User!</div>
+                    </div>
+                    <ul class="collection">
+                        <li class="collection-item"><a style="color: teal; cursor: pointer"
+                                                       onclick="makeDonateAjaxCall()">Donate</a></li>
+                        <li class="collection-item"><a style="color: teal; cursor: pointer"
+                                                       onclick="makeProfileAjaxCall()">Profile</a></li>
+                        <li class="collection-item"><a style="color: teal; cursor: pointer"
+                                                       onclick="makeHistoryAjaxCall()">History</a></li>
+                        <li class="collection-item"><a style="color: teal; cursor: pointer"
+                                                       onclick="makeSettingsAjaxCall()">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {#Left Menu End#}
+
+            {#Right Body Start#}
+            <div class="col s12 m10 l9" id="right-body">
+                {% include 'AppBundle:Donor:donor_donate.html.twig' %}
+            </div>
+            {#Right Body End#}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+
+        var currentTab = 'donate';
+
+        function makeDonateAjaxCall() {
+            if (currentTab != 'donate') {
+                $.post('{{ path('donor_donate') }}', {}, function (response) {
+                    if (response.code == 100 && response.success) {
+                        document.getElementById('right-body').innerHTML = response.content;
+                        currentTab = 'donate';
+                    }
+                }, "json");
+            }
+        }
+
+        function makeProfileAjaxCall() {
+            if (currentTab != 'profile') {
+                $.post('{{ path('donor_profile') }}', {}, function (response) {
+                    if (response.code == 100 && response.success) {
+                        document.getElementById('right-body').innerHTML = response.content;
+                        currentTab = 'profile';
+                    }
+                }, "json");
+            }
+        }
+
+        function makeHistoryAjaxCall() {
+            if (currentTab != 'history') {
+                $.post('{{ path('donor_history') }}', {}, function (response) {
+                    if (response.code == 100 && response.success) {
+                        document.getElementById('right-body').innerHTML = response.content;
+                        currentTab = 'history';
+                    }
+                }, "json");
+            }
+        }
+
+        function makeSettingsAjaxCall() {
+            if (currentTab != 'settings') {
+                $.post('{{ path('donor_settings') }}', {}, function (response) {
+                    if (response.code == 100 && response.success) {
+                        document.getElementById('right-body').innerHTML = response.content;
+                        currentTab = 'settings';
+                    }
+                }, "json");
+            }
+        }
+    </script>
+{% endblock %}

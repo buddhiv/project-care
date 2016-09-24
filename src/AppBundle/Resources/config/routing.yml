@@ -1,0 +1,31 @@
+empty_route:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }
+
+home:
+    path:     /home
+    defaults: { _controller: AppBundle:Default:home }
+
+results:
+    path:     /results
+    defaults: { _controller: AppBundle:Default:results }
+
+donor_home:
+    path:     /donor/home
+    defaults: { _controller: AppBundle:Donor:home }
+
+donor_donate:
+    path:     /donor/donate
+    defaults: { _controller: AppBundle:Ajax:donate }
+
+donor_profile:
+    path:     /donor/profile
+    defaults: { _controller: AppBundle:Ajax:profile }
+
+donor_history:
+    path:     /donor/history
+    defaults: { _controller: AppBundle:Ajax:history }
+
+donor_settings:
+    path:     /donor/settings
+    defaults: { _controller: AppBundle:Ajax:settings }
